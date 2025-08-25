@@ -1,61 +1,61 @@
 🖼️ JavaFX Image Processing (Tile-Based)
 
-A JavaFX desktop application for tile-based image processing.
-It loads an image, splits it into tiles, applies filters (like grayscale), and progressively renders them on a canvas.
+A JavaFX desktop application that demonstrates tile-based image processing.
+It loads an image, splits it into smaller tiles, applies filters (e.g., grayscale), and progressively renders them on a JavaFX canvas.
 
 ✨ Features
 
 📂 Load images (JPG/PNG) into the app
 
-🎨 Apply filters (e.g., grayscale, color transforms, custom filters)
+🎨 Apply filters (grayscale, color transforms, custom effects)
 
-🧩 Tile-based processing (split image into chunks)
+🧩 Tile-based processing (split into chunks for efficient rendering)
 
-⚡ Progressive rendering on a JavaFX canvas
+⚡ Progressive rendering on JavaFX canvas
 
-🛠️ Extendable: plug in your own custom filters
+🛠️ Easily extendable with custom filters
 
-🔄 Concurrent processing for faster performance
+🔄 Concurrent processing for performance boost
 
 🧠 Concepts Used
 🔹 Core Java
 
-Streams API → clean functional style for iterating tiles
+Streams API → functional, concise tile iteration
 
-Multithreading → multiple tiles processed in parallel
+Multithreading & Concurrency → parallel tile processing with safe coordination
 
-Concurrency → safe coordination between worker threads and JavaFX Application Thread
+AWT + BufferedImage → low-level pixel manipulation
 
 🔹 JavaFX
 
-Canvas-based rendering
+Canvas-based rendering for tiles
 
-Scene Graph management
+Scene Graph management for UI
 
-Event-driven architecture
+Event-driven architecture for interaction
 
 🔹 Low-Level Design (LLD)
 
-Interface-based design (ImageFilter)
+Interface-driven design → ImageFilter abstraction for filters
 
-Singleton pattern (DrawMultipleImagesOnCanvas)
+Singleton pattern → centralized DrawMultipleImagesOnCanvas manager
 
-Separation of Concerns (I/O, Filters, Processing, Rendering modules)
+Separation of Concerns → I/O, Filters, Processing, and Rendering in distinct modules
 
 🔹 LLM-Assisted Development
 
 Prompt Engineering → refining filters & debugging rendering issues
 
-LLM Pair Programming → modular design decisions (e.g., ImageData, ImageProcessor)
+LLM Pair Programming → guided modular design (ImageData, ImageProcessor)
 
-Human + AI Feedback Loop → iterative testing, debug logs, and fixes guided by AI
+Human + AI Feedback Loop → iterative testing and debugging with AI assistance
 
 🛠️ Tech Stack
 
-Java 21+
+☕ Java 21+
 
-JavaFX 21 LTS
+🎨 JavaFX 21 LTS
 
-Maven / Gradle (build tool)
+📦 Maven / Gradle (build tool)
 
-AWT + BufferedImage for pixel processing
+🖼️ AWT + BufferedImage for pixel-level processing
