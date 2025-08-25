@@ -1,4 +1,11 @@
 package com.ImageProcessing.filter;
 
-public class ImageFilter {
+import java.awt.image.BufferedImage;
+
+public interface ImageFilter {
+    BufferedImage filter(BufferedImage image);
+
+    BufferedImage apply(BufferedImage subimage);
 }
+
+
