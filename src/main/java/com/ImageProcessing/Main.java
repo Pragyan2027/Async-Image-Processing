@@ -1,27 +1,39 @@
-package com.chat;
+package com.ImageProcessing;
 
+import com.ImageProcessing.filter.GreyScaleFilter;
+import com.ImageProcessing.filter.ImageFilter;
+import com.ImageProcessing.io.FileImageIO;
+import com.ImageProcessing.io.ImageReadInf;
+import com.ImageProcessing.processor.DrawMultipleImagesOnCanvas;
+import com.ImageProcessing.processor.ImageProcessor;
 import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.TextArea;
+import javafx.application.Platform;
 import javafx.stage.Stage;
+
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class Main extends Application {
 
     @Override
-    public void start(Stage stage) {
-        TextArea textArea = new TextArea();
-        textArea.setEditable(false);
+    public void start(Stage stage) throws IOException {
+        DrawMultipleImagesOnCanvas drawMultipleImagesOnCanvas = DrawMultipleImagesOnCanvas.getInstance();
+        drawMultipleImagesOnCanvas.initialize(stage);
 
-        textArea.appendText("Hello and welcome!\n");
-        for (int i = 1; i <= 5; i++) {
-            textArea.appendText("i = " + i + "\n");
-        }
+        ImageReadInf imageIO = new FileImageIO();
+        BufferedImage image = imageIO.readImage("C:\\Users\\Pragyan Sen\\ImageProcessing\\src\\main\\resources\\test.jpg");
+        System.out.println("Image loaded: " + image.getWidth() + "x" + image.getHeight());
 
-        Scene scene = new Scene(textArea, 400, 300);
-        stage.setTitle("JavaFX Output Example");
-        stage.setScene(scene);
-        stage.show();
+        ImageProcessor processor = new ImageProcessor();
+        ImageFilter imageFilter = new GreyScaleFilter();
+
+
+        processor.processImage(image, 50, imageFilter, drawMultipleImagesOnCanvas);
+
+        Platform.setImplicitExit(false);
     }
+
+
 
     public static void main(String[] args) {
         launch();
